@@ -1,0 +1,28 @@
+import winsound
+import time
+codigo_morse = {
+"a": ".-", "b": "_...", "c": "_._.", "d": "-..", "e": ".", "f": "..-.", "g": "--.", "h": "....", "i": "..", "j": ".---", "k": "-.-", "l": ".-..", "m": "--", "n": "-.", "o": "---", "p": ".--.", "q": "--.-", "r": ".-.", "s": "...", "t": "-", "u": "..-", "v": "...-", "w": ".--", "x": "-..-", "y": "-.--", "z": "--.."
+}
+
+texto_codificado = ""
+
+palabra = input("Ingrese lo que desee codificar: ")
+
+for c in palabra:
+	if c != 0 and c.lower() in codigo_morse:
+		texto_codificado += codigo_morse[c.lower()]
+		texto_codificado += "|"
+	else:
+		texto_codificado += c
+
+print("Codigo Morse: {}".format(texto_codificado))
+for n in texto_codificado:
+	if n == '.':
+		winsound.Beep(400, 600)
+	elif n == '-':
+		winsound.Beep(400, 1800)
+	elif n == '|':
+		time.sleep(1.8)
+	elif n == ' ':
+		time.sleep(4.2)
+	time.sleep(0.6)
